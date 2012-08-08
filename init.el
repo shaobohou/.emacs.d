@@ -59,6 +59,7 @@
 ;; Editing behaviour
 ;;
 
+(setq-default sh-basic-offset 4)
 (setq-default c-basic-offset 4)
 (setq-default indent-tabs-mode nil)
 (setq x-select-enable-clipboard t)
