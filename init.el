@@ -65,3 +65,7 @@
 (setq x-select-enable-clipboard t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
+
+;; no pretty fns
+(remove-hook 'clojure-mode-hook 'esk-pretty-fn)
+
