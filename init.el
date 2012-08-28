@@ -69,6 +69,8 @@
 (setq x-select-enable-clipboard t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
+(setq ess-eval-visibly-p nil) ;otherwise C-c C-r (eval region) takes forever
+(setq ess-ask-for-ess-directory nil) ;otherwise you are prompted each time you start an interactive R session
 
 ;; no pretty fns
 (remove-hook 'clojure-mode-hook 'esk-pretty-fn)
