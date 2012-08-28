@@ -22,7 +22,8 @@
                              durendal
                              gist
                              ess
-                             auctex)
+                             auctex
+                             octave-mod)
   "Emacs packages to be installed if they aren't already.")
 
 (dolist (p installed-packages)
