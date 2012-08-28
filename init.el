@@ -19,7 +19,10 @@
                              clojurescript-mode
                              slime
                              slime-repl
-                             durendal)
+                             durendal
+                             gist
+                             ess
+                             auctex)
   "Emacs packages to be installed if they aren't already.")
 
 (dolist (p installed-packages)
