@@ -17,6 +17,7 @@
                              clojure-project-mode
                              clojure-test-mode
                              clojurescript-mode
+                             scala-mode
                              slime
                              slime-repl
                              durendal
