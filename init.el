@@ -20,6 +20,7 @@
                              slime
                              slime-repl
                              durendal
+                             python-mode
                              gist
                              ess
                              auctex
@@ -71,6 +72,11 @@
 
 (setq ess-eval-visibly-p nil) ;otherwise C-c C-r (eval region) takes forever
 (setq ess-ask-for-ess-directory nil) ;otherwise you are prompted each time you start an interactive R session
+
+(setq auto-mode-alist
+      (cons '("SConstruct" . python-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("SConscript" . python-mode) auto-mode-alist))
 
 ;; no pretty fns
 (remove-hook 'clojure-mode-hook 'esk-pretty-fn)
