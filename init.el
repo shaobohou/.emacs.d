@@ -17,6 +17,8 @@
                              clojure-project-mode
                              clojure-test-mode
                              clojurescript-mode
+                             cl ;; bad idea?
+                             nrepl
                              scala-mode
                              slime
                              slime-repl
