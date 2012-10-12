@@ -11,8 +11,8 @@
   (package-refresh-contents))
 
 (defvar installed-packages '(starter-kit 
-			     starter-kit-lisp 
-			     starter-kit-bindings
+                             starter-kit-lisp 
+                             starter-kit-bindings
                              clojure-mode
                              clojure-project-mode
                              clojure-test-mode
