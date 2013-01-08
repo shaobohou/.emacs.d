@@ -17,7 +17,6 @@
                              clojure-project-mode
                              clojure-test-mode
                              clojurescript-mode
-                             cl ;; bad idea?
                              nrepl
                              scala-mode
                              slime
@@ -78,8 +77,6 @@
 
 (setq auto-mode-alist
       (cons '("SConstruct" . python-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("SConscript" . python-mode) auto-mode-alist))
 
 ;; no pretty fns
 (remove-hook 'clojure-mode-hook 'esk-pretty-fn)
