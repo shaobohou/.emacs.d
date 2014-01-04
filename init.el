@@ -42,7 +42,8 @@
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
+(if window-system
+  (scroll-bar-mode -1))
 (show-paren-mode 1)
 (transient-mark-mode 1)
 (add-hook 'find-file-hook (lambda () 
