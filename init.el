@@ -10,8 +10,8 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar installed-packages '(starter-kit 
-                             starter-kit-lisp 
+(defvar installed-packages '(starter-kit
+                             starter-kit-lisp
                              starter-kit-bindings
                              clojure-mode
                              clojure-project-mode
@@ -45,7 +45,7 @@
 (scroll-bar-mode -1)
 (show-paren-mode 1)
 (transient-mark-mode 1)
-(add-hook 'find-file-hook (lambda () 
+(add-hook 'find-file-hook (lambda ()
                             (linum-mode 1)
                             (line-number-mode -1)))
 (setq inhibit-startup-screen t)
@@ -61,6 +61,18 @@
                                   'fullboth)))))
 (global-set-key [f11] 'toggle-fullscreen)
 
+;; hide *nrepl-connection* and *nrepl-server* from C-x b
+(setq nrepl-hide-special-buffers t)
+;; stop the error buffer from popping up while working in buffers other than the REPL
+(setq nrepl-popup-stacktraces nil)
+;; enable error buffer popping also in the REPL
+(setq nrepl-popup-stacktraces-in-repl t)
+;; rainbow parentheses
+(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
+
+(setq whitespace-line-column 160)
+(global-whitespace-mode 1)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;;
 ;; Editing behaviour
@@ -80,4 +92,3 @@
 
 ;; no pretty fns
 (remove-hook 'clojure-mode-hook 'esk-pretty-fn)
-
