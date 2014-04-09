@@ -71,9 +71,12 @@
 ;; rainbow parentheses
 (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
 
+;; whitespace
 (setq whitespace-line-column 160)
 (global-whitespace-mode 1)
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
+(which-function-mode)
 
 ;;
 ;; Editing behaviour
