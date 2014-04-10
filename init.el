@@ -74,7 +74,7 @@
 ;; whitespace
 (setq whitespace-line-column 160)
 (global-whitespace-mode 1)
-(add-hook 'before-save-hook 'whitespace-cleanup)
+;; (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (which-function-mode)
 
