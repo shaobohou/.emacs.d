@@ -15,9 +15,9 @@
                              starter-kit-bindings
                              clojure-mode
                              ;; clojure-project-mode
-                             clojure-test-mode
+                             ;; clojure-test-mode
                              clojurescript-mode
-                             nrepl
+                             ;; nrepl
                              scala-mode
                              durendal
                              python-mode
