@@ -14,13 +14,11 @@
                              starter-kit-lisp
                              starter-kit-bindings
                              clojure-mode
-                             clojure-project-mode
+                             ;; clojure-project-mode
                              clojure-test-mode
                              clojurescript-mode
                              nrepl
                              scala-mode
-                             slime
-                             slime-repl
                              durendal
                              python-mode
                              gist
