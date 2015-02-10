@@ -94,3 +94,7 @@
 
 ;; no pretty fns
 (remove-hook 'clojure-mode-hook 'esk-pretty-fn)
+
+(add-to-list
+ 'auto-mode-alist
+   '("\\.m$" . octave-mode))
