@@ -13,6 +13,7 @@
 (defvar installed-packages '(starter-kit
                              starter-kit-lisp
                              starter-kit-bindings
+                             cider
                              clojure-mode
                              ;; clojure-project-mode
                              ;; clojure-test-mode
