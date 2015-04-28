@@ -19,6 +19,7 @@
                              ;; clojure-test-mode
                              clojurescript-mode
                              ;; nrepl
+                             company
                              scala-mode
                              durendal
                              python-mode
@@ -99,3 +100,5 @@
 (add-to-list
  'auto-mode-alist
    '("\\.m$" . octave-mode))
+
+(add-hook 'after-init-hook 'global-company-mode)
