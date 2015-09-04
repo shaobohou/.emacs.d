@@ -23,6 +23,7 @@
                              scala-mode
                              durendal
                              python-mode
+                             lua-mode
                              gist
                              ess
                              auctex
@@ -99,6 +100,10 @@
 
 (add-to-list
  'auto-mode-alist
-   '("\\.m$" . octave-mode))
+ '("\\.m$" . octave-mode))
+
+(add-to-list
+ 'auto-mode-alist
+ '("\\.th$" . lua-mode))
 
 (add-hook 'after-init-hook 'global-company-mode)
