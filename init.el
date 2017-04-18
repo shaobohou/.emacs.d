@@ -10,10 +10,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar installed-packages '(;;starter-kit
-                             ;;starter-kit-lisp
-                             ;;starter-kit-bindings
-                             better-defaults
+(defvar installed-packages '(better-defaults
                              paredit
                              idle-highlight-mode
                              ido-ubiquitous
@@ -22,10 +19,7 @@
                              scpaste
                              cider
                              clojure-mode
-                             ;; clojure-project-mode
-                             ;; clojure-test-mode
                              clojurescript-mode
-                             ;; nrepl
                              company
                              scala-mode
                              durendal
@@ -34,21 +28,12 @@
                              window-number
                              gist
                              ess
-                             auctex
-                             octave-mod)
+                             auctex)
   "Emacs packages to be installed if they aren't already.")
 
 (dolist (p installed-packages)
   (when (not (package-installed-p p))
     (package-install p)))
-
-
-(load-file "~/.emacs.d/elisp/emacs-starter-kit/starter-kit-defuns.el")
-(load-file "~/.emacs.d/elisp/emacs-starter-kit/starter-kit-misc.el")
-(load-file "~/.emacs.d/elisp/emacs-starter-kit/starter-kit.el")
-;; (load-file "~/.emacs.d/elisp/emacs-starter-kit/modules/starter-kit-lisp.el") ;; not sure why this breaks
-(load-file "~/.emacs.d/elisp/emacs-starter-kit/modules/starter-kit-bindings.el")
-
 
 ;; We don't want custom messing with this file
 (setq custom-file "~/.emacs.d/custom.el")
@@ -87,42 +72,8 @@
 (global-set-key [f11] 'toggle-fullscreen)
 
 
-;; cider
-(add-hook 'clojure-mode-hook 'paredit-mode)
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-(setq nrepl-hide-special-buffers t)
-(setq cider-repl-pop-to-buffer-on-connect nil)
-(setq cider-show-error-buffer nil)
-;; stop the error buffer from popping up while working in buffers other than the REPL
-(setq nrepl-popup-stacktraces nil)
-;; enable error buffer popping also in the REPL
-(setq nrepl-popup-stacktraces-in-repl t)
-;; rainbow parentheses
-(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
-
-
-;; org
-(require 'org-habit)
-(setq org-log-done 'time)
-(global-set-key (kbd "C-c a") 'org-archive-subtree-default)
-
-(setq org-directory "~/org")
-(setq org-mobile-directory "~/Dropbox/mobileorg")
-(setq org-agenda-files '("~/org/todo.org"))
-(setq org-mobile-inbox-for-pull "~/org/from-mobile.org")
-
-(add-hook 
- 'org-mode-hook
- (lambda()
-   (define-key org-mode-map 
-     (kbd "<f5>") 'org-export-as-pdf)))
-
-
-
 ;; whitespace
 (setq whitespace-line-column 160)
-;; (global-whitespace-mode 1)
-;; (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (which-function-mode)
 
