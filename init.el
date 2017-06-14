@@ -4,7 +4,9 @@
 
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/")
+             ;; '("marmalade" . "http://marmalade-repo.org/packages/")
+             )
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -14,20 +16,14 @@
                              paredit
                              idle-highlight-mode
                              ido-ubiquitous
+                             fill-column-indicator
                              find-file-in-project
                              smex
-                             scpaste
-                             cider
-                             clojure-mode
-                             clojurescript-mode
                              company
+                             clojure-mode
                              scala-mode
-                             durendal
                              python-mode
                              lua-mode
-                             window-number
-                             gist
-                             ess
                              auctex)
   "Emacs packages to be installed if they aren't already.")
 
@@ -42,7 +38,6 @@
 ;;
 ;; Frame appearance
 ;;
-
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (if window-system
@@ -53,11 +48,6 @@
                             (linum-mode 1)
                             (line-number-mode -1)))
 (setq inhibit-startup-screen t)
-
-
-;; window number
-(require 'window-number)
-(window-number-meta-mode)
 
 
 ;; Fullscreen mode, bound to F11
@@ -72,25 +62,29 @@
 (global-set-key [f11] 'toggle-fullscreen)
 
 
-;; whitespace
-(setq whitespace-line-column 160)
+;; column marker
+(add-hook 'c-mode-hook 'fci-mode)
+(add-hook 'c++-mode-hook 'fci-mode)
+(add-hook 'python-mode-hook 'fci-mode)
+(setq fci-rule-width 1)
+(setq fci-rule-column 80)
 
+
+;; whitespace, which function, column number, deletion
 (which-function-mode)
+(delete-selection-mode 1)
+(setq column-number-mode t)
+(setq whitespace-line-column 160)
 
 
 ;;
 ;; Editing behaviour
 ;;
-
 (setq-default sh-basic-offset 4)
 (setq-default c-basic-offset 4)
 (setq-default indent-tabs-mode nil)
 (setq x-select-enable-clipboard t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-
-(setq ess-eval-visibly-p nil) ;otherwise C-c C-r (eval region) takes forever
-(setq ess-ask-for-ess-directory nil) ;otherwise you are prompted each time you start an interactive R session
-
 
 
 ;; scons
@@ -99,15 +93,14 @@
 (setq auto-mode-alist
       (cons '("SConscript" . python-mode) auto-mode-alist))
 
-;; no pretty fns
-(remove-hook 'clojure-mode-hook 'esk-pretty-fn)
-
-(add-to-list
- 'auto-mode-alist
- '("\\.m$" . octave-mode))
-
+;; Torch
 (add-to-list
  'auto-mode-alist
  '("\\.th$" . lua-mode))
 
+
+;; no pretty fns
+(remove-hook 'clojure-mode-hook 'esk-pretty-fn)
+
+;; company-mode
 (add-hook 'after-init-hook 'global-company-mode)
