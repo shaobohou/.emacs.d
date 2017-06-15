@@ -62,6 +62,10 @@
 (global-set-key [f11] 'toggle-fullscreen)
 
 
+;; ido mode
+(ido-mode t)
+
+
 ;; column marker
 (add-hook 'c-mode-hook 'fci-mode)
 (add-hook 'c++-mode-hook 'fci-mode)
