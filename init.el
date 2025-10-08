@@ -61,8 +61,13 @@
 (setq display-line-numbers-type 'relative)
 (dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
   (add-hook hook #'display-line-numbers-mode))
-(dolist (mode '(vterm-mode-hook eshell-mode-hook shell-mode-hook term-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+(defun disable-display-line-numbers ()
+  "Turn off `display-line-numbers-mode'."
+  (display-line-numbers-mode 0))
+(dolist (mode '(eshell-mode-hook shell-mode-hook term-mode-hook))
+  (add-hook mode #'disable-display-line-numbers))
+(with-eval-after-load 'vterm
+  (add-hook 'vterm-mode-hook #'disable-display-line-numbers))
 
 (show-paren-mode 1)
 (when (fboundp 'pixel-scroll-precision-mode)
@@ -273,7 +278,7 @@ previous frame state so we can restore it when toggling back."
   "Open this init file."
   (interactive)
   (find-file (expand-file-name "init.el" user-emacs-directory)))
-(global-set-key (kbd "C-c I") #'open-init-file)
+(global-set-key (kbd "C-c C-e") #'open-init-file)
 
 ;; -------------------------------------------------------------------
 ;; Final setup
