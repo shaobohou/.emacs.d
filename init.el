@@ -278,7 +278,7 @@ previous frame state so we can restore it when toggling back."
   "Open this init file."
   (interactive)
   (find-file (expand-file-name "init.el" user-emacs-directory)))
-(global-set-key (kbd "C-c C-e") #'open-init-file)
+(global-set-key (kbd "C-c C-i") #'open-init-file)
 
 ;; -------------------------------------------------------------------
 ;; Final setup
