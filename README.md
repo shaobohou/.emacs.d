@@ -6,7 +6,7 @@ Modernised Emacs configuration targeting Emacs 29/30. Highlights:
 * Uses `use-package` with the latest GNU, NonGNU and MELPA archives.
 * Ships with Vertico/Orderless/Consult for a fast, minimal completion stack.
 * Enables quality-of-life defaults such as relative line numbers, project
-  integration, on-the-fly linting and LSP (via `eglot`).
+  integration, on-the-fly linting and LSP (via `eglot` + `flycheck-eglot`).
 * Ships first-class language support for Python, Go, Rust (with rust-analyzer)
   and modern C/C++ (via clangd).
 

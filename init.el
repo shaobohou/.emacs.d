@@ -180,6 +180,10 @@
 (use-package flycheck
   :hook (prog-mode . flycheck-mode))
 
+(use-package flycheck-eglot
+  :after (flycheck eglot)
+  :hook (eglot-managed-mode . flycheck-eglot-mode))
+
 (use-package lua-mode
   :mode ("\\.lua\\'" . lua-mode))
 
