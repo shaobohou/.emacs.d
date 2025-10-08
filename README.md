@@ -21,8 +21,8 @@ Modernised Emacs configuration targeting Emacs 29/30. Highlights:
 The configuration keeps user customisations in `custom.el`. Feel free to edit
 `init.el` to suit your workflow—the file is organised into clearly labelled
 sections for easy navigation. Use `C-c C-i` inside Emacs to jump straight to the
-configuration. This key chord lives in the user-reserved `C-c` control prefix
-and intentionally repurposes the seldom used `C-c TAB` slot.
+configuration; this user-reserved control-prefix binding simply reuses the
+seldom-used `C-c TAB` slot that Emacs aliases to `C-c C-i` across environments.
 
 ### FAQ
 

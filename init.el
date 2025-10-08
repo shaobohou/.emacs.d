@@ -193,6 +193,9 @@
   :custom
   (python-shell-interpreter "python3"))
 
+(use-package go-mode
+  :mode ("\\.go\\'" . go-mode))
+
 (use-package clojure-mode)
 
 (use-package scala-mode
