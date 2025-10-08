@@ -13,6 +13,7 @@
 ;; -------------------------------------------------------------------
 
 (require 'package)
+(require 'cl-lib)
 (setq package-archives
       '(("gnu"    . "https://elpa.gnu.org/packages/")
         ("nongnu" . "https://elpa.nongnu.org/nongnu/")
@@ -229,13 +230,17 @@
 (use-package eglot
   :ensure nil
   :hook ((python-mode . eglot-ensure)
-         (go-mode     . eglot-ensure))
+         (go-mode . eglot-ensure)
+         (c-mode . eglot-ensure)
+         (c++-mode . eglot-ensure)
+         (c-ts-mode . eglot-ensure)
+         (c++-ts-mode . eglot-ensure)
+         (rust-mode . eglot-ensure)
+         (rust-ts-mode . eglot-ensure))
   :config
-  (dolist (hook '(c-mode-hook c++-mode-hook c-ts-mode-hook c++-ts-mode-hook
-                  rust-mode-hook rust-ts-mode-hook))
-    (add-hook hook #'eglot-ensure))
-  (add-to-list 'eglot-server-programs '((c-mode c++-mode c-ts-mode c++-ts-mode) "clangd") t)
-  (add-to-list 'eglot-server-programs '((rust-mode rust-ts-mode) "rust-analyzer") t))
+  (dolist (entry '(((c-mode c++-mode c-ts-mode c++-ts-mode) . ("clangd"))
+                   ((rust-mode rust-ts-mode) . ("rust-analyzer"))))
+    (cl-pushnew entry eglot-server-programs :test #'equal)))
 
 (use-package exec-path-from-shell
   :if (memq system-type '(darwin gnu/linux))
