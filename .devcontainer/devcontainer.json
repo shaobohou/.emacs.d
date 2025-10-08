@@ -1,0 +1,13 @@
+{
+  "name": "Emacs Config Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/codespaces/default:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/emacs:1": {},
+    "ghcr.io/devcontainers/features/ripgrep:1": {}
+  },
+  "postCreateCommand": [
+    "bash",
+    "-lc",
+    "mkdir -p ~/.emacs.d && cp -f ${containerWorkspaceFolder}/init.el ~/.emacs.d/init.el && emacs --batch --eval '(message \"Emacs init loaded\")'"
+  ]
+}
